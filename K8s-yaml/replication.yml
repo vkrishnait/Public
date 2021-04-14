@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: deployment-md
+   labels:
+    env: dev
+    app: nginx
+spec:
+  replicas: 4
+  selector:
+   matchLabels:
+     app: nginx
+  template:
+    metadata:
+     labels:
+       app: nginx 
+    spec: 
+      containers:
+       - name: webservice
+        image: nginx
+        ports:
+         - containerPort: 80 
