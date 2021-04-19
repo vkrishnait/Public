@@ -8,8 +8,8 @@ metadata:
 spec:
  containers:
   - name: nginx
-     image: nginx:latest
-     ports:
-      - name: nginxport
-        containerPort: 80
-        protocol: TCP
+    image: nginx:latest
+    ports:
+     - name: nginxport
+       containerPort: 80
+       protocol: TCP
