@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-matchexpress
+  labels:
+     env: dev
+spec:
+ replicas: 3
+ selector:
+  matchExpressions:
+  - key: env
+    operator: In
+    values:
+     - dev1
+     - prod
+ template:
+  metadata:
+   labels:
+    env: dev1
+  spec:
+   containers:
+   - name: nginx
+     image: nginx
+     ports:
+     - containerPort: 80
+       protocol: TCP  
